@@ -155,6 +155,18 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   window.addEventListener('scroll', toggleBackToTop, { passive: true });
 
+  // ===== WHATSAPP FLOATING WIDGET =====
+  const waFloat = document.createElement('div');
+  waFloat.className = 'whatsapp-float';
+  waFloat.innerHTML = `
+    <a class="whatsapp-btn" href="https://wa.me/919567288812?text=Hello%2C%20I%27m%20interested%20in%20Dentmart%27s%20dental%20lab%20services."
+       target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <span class="whatsapp-tooltip">Chat with us on WhatsApp</span>
+  `;
+  document.body.appendChild(waFloat);
+
   // ===== STICKY HEADER SCROLL SHADOW =====
   const header = document.querySelector('.header');
   if (header) {
