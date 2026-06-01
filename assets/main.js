@@ -12,20 +12,50 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Contact form — demo submit
-  const form = document.querySelector('.contact-form form');
+  // ===== EMAILJS CONTACT FORM =====
+  // Sign up at https://www.emailjs.com and replace the placeholders below:
+  //   YOUR_PUBLIC_KEY   → Account > API Keys > Public Key
+  //   YOUR_SERVICE_ID   → Email Services > your service ID (e.g. service_xxxxxxx)
+  //   YOUR_TEMPLATE_ID  → Email Templates > your template ID (e.g. template_xxxxxxx)
+  const EMAILJS_PUBLIC_KEY = 'HowN_jGHefazsuVwj';
+  const EMAILJS_SERVICE_ID = 'service_v8a49o6';
+  const EMAILJS_TEMPLATE_ID = 'template_4ajreij';
+
+  if (typeof emailjs !== 'undefined') {
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+  }
+
+  const form = document.getElementById('contact-form');
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const btn = form.querySelector('button[type="submit"]');
       const original = btn.innerHTML;
+
       btn.disabled = true;
-      btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-      form.reset();
-      setTimeout(() => {
-        btn.disabled = false;
-        btn.innerHTML = original;
-      }, 2800);
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending…';
+
+      emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form)
+        .then(() => {
+          btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+          btn.style.background = 'linear-gradient(135deg,#16a34a,#15803d)';
+          form.reset();
+          setTimeout(() => {
+            btn.disabled = false;
+            btn.innerHTML = original;
+            btn.style.background = '';
+          }, 3500);
+        })
+        .catch((err) => {
+          console.error('EmailJS error:', err);
+          btn.disabled = false;
+          btn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Failed — Try Again';
+          btn.style.background = 'linear-gradient(135deg,#dc2626,#b91c1c)';
+          setTimeout(() => {
+            btn.innerHTML = original;
+            btn.style.background = '';
+          }, 3500);
+        });
     });
   }
 
@@ -64,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     slider.addEventListener('mousedown', (e) => { isDragging = true; updateSlider(e.clientX); });
-    slider.addEventListener('touchstart', (e) => { isDragging = true; updateSlider(e.touches[0].clientX); }, {passive:true});
+    slider.addEventListener('touchstart', (e) => { isDragging = true; updateSlider(e.touches[0].clientX); }, { passive: true });
 
     const stopDrag = () => { isDragging = false; };
     document.addEventListener('mouseup', stopDrag);
@@ -76,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
       updateSlider(clientX);
     };
     document.addEventListener('mousemove', moveHandler);
-    document.addEventListener('touchmove', moveHandler, {passive:true});
+    document.addEventListener('touchmove', moveHandler, { passive: true });
   });
 
   // ===== SCROLL REVEAL (IntersectionObserver) =====
