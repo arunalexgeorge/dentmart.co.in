@@ -471,36 +471,56 @@
     margin-bottom: 20px;
   }
   .machine-card {
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
-    border: 1px solid var(--border);
+    border: 1px solid #e8eef8;
     background: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    box-shadow: 0 2px 10px rgba(0,0,0,.07);
+    display: flex;
+    flex-direction: column;
   }
   .machine-card-img {
-    height: 130px;
+    height: 150px;
     overflow: hidden;
-    background: #f5f8ff;
+    background: #f2f5fb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
   }
   .machine-card-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
     display: block;
-    transition: transform .3s;
   }
-  .machine-card-body { padding: 9px 11px; }
+  .machine-card-body { padding: 10px 12px 12px; flex: 1; }
   .machine-tag {
-    font-size: 7.5px;
+    font-size: 7px;
     font-weight: 700;
-    letter-spacing: .8px;
+    letter-spacing: .9px;
     text-transform: uppercase;
-    color: var(--blue);
-    margin-bottom: 3px;
-    display: block;
+    color: #1a7a5e;
+    background: #e6f7f2;
+    border-radius: 20px;
+    padding: 3px 9px;
+    display: inline-block;
+    margin-bottom: 6px;
   }
-  .machine-name { font-size: 10px; font-weight: 700; color: var(--blue-dark); line-height: 1.3; }
+  .machine-name {
+    font-size: 10.5px;
+    font-weight: 800;
+    color: var(--blue-dark);
+    line-height: 1.3;
+    margin-bottom: 5px;
+  }
+  .machine-desc {
+    font-size: 8.5px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
 
   /* Contact section */
   .contact-section {
@@ -1093,45 +1113,51 @@
       <div class="section-title" style="margin-bottom:12px;">Precision Equipment, Proven Results</div>
       <div class="machines-grid">
         <div class="machine-card">
-          <div class="machine-card-img"><img src="assets/machine-xtcera.jpg" alt="Mill" onerror="this.src='assets/machine-mill.jpg'"></div>
+          <div class="machine-card-img"><img src="assets/machine-xtcera.jpg" alt="XTCERA X-Mill" onerror="this.src='assets/machine-mill.jpg'"></div>
           <div class="machine-card-body">
             <span class="machine-tag">5-Axis Milling</span>
             <div class="machine-name">XTCERA X-Mill 500 Plus</div>
+            <p class="machine-desc">High-precision 5-axis dental milling machine for zirconia, PMMA, and wax — delivering exceptional accuracy and surface finish.</p>
           </div>
         </div>
         <div class="machine-card">
-          <div class="machine-card-img"><img src="assets/machine-shining3d.jpg" alt="3D Scanner" onerror="this.src='assets/machine-scanner.jpg'"></div>
+          <div class="machine-card-img"><img src="assets/machine-shining3d.jpg" alt="SHINING 3D AutoScan" onerror="this.src='assets/machine-scanner.jpg'"></div>
           <div class="machine-card-body">
             <span class="machine-tag">3D Scanning</span>
             <div class="machine-name">SHINING 3D AutoScan DS-EX Pro</div>
+            <p class="machine-desc">Dual 5.0 MP camera lab scanner capturing every detail of dies, models, and articulators with ≤ 8 μm accuracy.</p>
           </div>
         </div>
         <div class="machine-card">
-          <div class="machine-card-img"><img src="assets/machine-ivoclar.jpg" alt="Ivoclar"></div>
+          <div class="machine-card-img"><img src="assets/machine-ivoclar.jpg" alt="Ivoclar Programat"></div>
           <div class="machine-card-body">
             <span class="machine-tag">Porcelain Firing</span>
             <div class="machine-name">Ivoclar Programat P310</div>
+            <p class="machine-desc">State-of-the-art ceramic furnace with QTK2 muffle technology and color touchscreen for flawless porcelain and glaze firing.</p>
           </div>
         </div>
         <div class="machine-card">
-          <div class="machine-card-img"><img src="assets/machine-furnace.jpg" alt="Sintering"></div>
+          <div class="machine-card-img"><img src="assets/machine-furnace.jpg" alt="Sintering Furnace"></div>
           <div class="machine-card-body">
             <span class="machine-tag">Sintering</span>
-            <div class="machine-name">ZTCF-30B Zirconia Furnace</div>
+            <div class="machine-name">ZTCF-30B Zirconia Sintering Furnace</div>
+            <p class="machine-desc">High-temperature sintering oven designed specifically for dental zirconia — ensuring full density and optimal flexural strength.</p>
           </div>
         </div>
         <div class="machine-card">
-          <div class="machine-card-img"><img src="assets/machine-elegoo.jpg" alt="Printer" onerror="this.src='assets/machine-printer.jpg'"></div>
+          <div class="machine-card-img"><img src="assets/machine-elegoo.jpg" alt="ELEGOO Saturn" onerror="this.src='assets/machine-printer.jpg'"></div>
           <div class="machine-card-body">
             <span class="machine-tag">3D Printing</span>
             <div class="machine-name">ELEGOO Saturn 4 12K</div>
+            <p class="machine-desc">Ultra-high-resolution resin 3D printer for dental models, surgical guides, and temporaries with 19×24 micron XY resolution.</p>
           </div>
         </div>
         <div class="machine-card">
-          <div class="machine-card-img"><img src="assets/aoralscan3.webp" alt="Intraoral"></div>
+          <div class="machine-card-img"><img src="assets/aoralscan3.webp" alt="Aoralscan 3"></div>
           <div class="machine-card-body">
             <span class="machine-tag">Intraoral Scanning</span>
             <div class="machine-name">SHINING 3D Aoralscan 3</div>
+            <p class="machine-desc">High-performance intraoral scanner offering exceptional accuracy, speed, and AI-powered scanning for an enhanced digital workflow.</p>
           </div>
         </div>
       </div>
