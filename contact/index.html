@@ -7,8 +7,8 @@
 <meta name="description" content="Get in touch with Dentmart Dental Lab. Visit us in Koothattukulam, Ernakulam, Kerala or reach out via phone, WhatsApp, or email.">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="assets/style.css">
-<link rel="icon" href="assets/logo.png">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" href="/assets/logo.png">
 </head>
 <body>
 
@@ -26,14 +26,14 @@
 <!-- Header -->
 <header class="header">
   <div class="container">
-    <a href="index.html"><img src="assets/logo.png" alt="Dentmart Dental Lab" class="logo-img"></a>
+    <a href="/"><img src="/assets/logo.png" alt="Dentmart Dental Lab" class="logo-img"></a>
     <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="products.html">Products</a>
-      <a href="contact.html" class="active">Contact</a>
-      <a href="terms.html">Terms</a>
-      <a href="contact.html" class="cta">Request a Quote</a>
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/products/">Products</a>
+      <a href="/contact/" class="active">Contact</a>
+      <a href="/terms/">Terms</a>
+      <a href="/contact/" class="cta">Request a Quote</a>
     </nav>
     <button class="menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
   </div>
@@ -45,7 +45,7 @@
     <small>Contact Us</small>
     <h1>Let's Start Your Next Case</h1>
     <div class="breadcrumb">
-      <a href="index.html">Home</a>
+      <a href="/">Home</a>
       <i class="fas fa-chevron-right"></i>
       <span>Contact</span>
     </div>
@@ -168,7 +168,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="assets/logo.png" alt="Dentmart" class="logo-img">
+        <img src="/assets/logo.png" alt="Dentmart" class="logo-img">
         <p>Premium dental laboratory delivering world-class prosthetics with precision CAD/CAM technology and artisan craftsmanship.</p>
         <div class="footer-social">
           <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -180,21 +180,21 @@
       <div>
         <h4>Quick Links</h4>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="products.html">Products</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about/">About Us</a></li>
+          <li><a href="/products/">Products</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/terms/">Terms &amp; Conditions</a></li>
         </ul>
       </div>
       <div>
         <h4>Our Services</h4>
         <ul>
-          <li><a href="products.html">Monolithic Zirconia</a></li>
-          <li><a href="products.html">Labial Layering</a></li>
-          <li><a href="products.html">DMLS PFM</a></li>
-          <li><a href="products.html">Full Metal Crowns</a></li>
-          <li><a href="products.html">Gingiva Restorations</a></li>
+          <li><a href="/products/">Monolithic Zirconia</a></li>
+          <li><a href="/products/">Labial Layering</a></li>
+          <li><a href="/products/">DMLS PFM</a></li>
+          <li><a href="/products/">Full Metal Crowns</a></li>
+          <li><a href="/products/">Gingiva Restorations</a></li>
         </ul>
       </div>
       <div>
@@ -217,6 +217,9 @@
 
 <!-- EmailJS SDK -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script src="assets/main.js"></script>
+<script>
+  document.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; });
+</script>
+<script src="/assets/main.js"></script>
 </body>
 </html>
