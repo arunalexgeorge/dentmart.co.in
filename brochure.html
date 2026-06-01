@@ -620,6 +620,173 @@
     color: var(--blue);
     letter-spacing: .3px;
   }
+
+  /* ══════════════════════════════════════════
+     PAGE 4 — PRICE LIST + TERMS
+  ══════════════════════════════════════════ */
+  .p4-body { padding: 22px 36px; display: flex; flex-direction: column; flex: 1; }
+
+  /* Price list */
+  .price-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--blue);
+    color: #fff;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    border-radius: 20px;
+    padding: 5px 16px;
+    margin-bottom: 16px;
+  }
+  .price-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+  .price-col {}
+  .price-category {
+    background: linear-gradient(90deg, #e8f0fe, #f0f6ff);
+    border-left: 3px solid var(--blue);
+    border-radius: 0 6px 6px 0;
+    padding: 6px 12px;
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--blue-dark);
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    margin-bottom: 0;
+  }
+  .price-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+  }
+  .price-table thead th {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 5px 8px;
+    text-align: right;
+    border-bottom: 1px solid var(--border);
+  }
+  .price-table thead th:first-child { text-align: left; }
+  .price-table tbody tr {
+    border-bottom: 1px solid #eef3fc;
+  }
+  .price-table tbody tr:last-child { border-bottom: none; }
+  .price-table tbody tr:hover { background: #fafcff; }
+  .price-table td {
+    padding: 6px 8px;
+    font-size: 9.5px;
+    color: var(--text);
+    vertical-align: middle;
+  }
+  .price-table td:first-child {
+    display: flex;
+    align-items: baseline;
+    gap: 7px;
+  }
+  .price-num {
+    font-size: 8px;
+    font-weight: 700;
+    color: var(--blue);
+    min-width: 14px;
+  }
+  .price-name { font-size: 9.5px; line-height: 1.4; color: var(--text); }
+  .price-amt {
+    text-align: right;
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--blue-dark);
+    white-space: nowrap;
+  }
+  .price-currency {
+    font-size: 8px;
+    font-weight: 600;
+    color: var(--muted);
+    margin-right: 1px;
+  }
+
+  /* Terms */
+  .terms-section {
+    background: linear-gradient(110deg, #0a2463, #1d4fa0);
+    border-radius: 14px;
+    padding: 18px 22px;
+    flex: 1;
+  }
+  .terms-section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 13px;
+    border-bottom: 1px solid rgba(255,255,255,.15);
+    padding-bottom: 10px;
+  }
+  .terms-section-header h3 {
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+  }
+  .terms-section-header p {
+    font-size: 9px;
+    color: rgba(255,255,255,.6);
+    margin-top: 2px;
+  }
+  .terms-badge {
+    background: rgba(255,255,255,.15);
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 8px;
+    padding: 6px 10px;
+    text-align: center;
+    font-size: 8px;
+    font-weight: 700;
+    color: rgba(255,255,255,.8);
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .terms-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px 16px;
+  }
+  .terms-item {
+    display: flex;
+    gap: 7px;
+    align-items: flex-start;
+  }
+  .terms-icon {
+    width: 16px;
+    height: 16px;
+    background: rgba(255,255,255,.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .terms-icon svg { width: 9px; height: 9px; fill: #fff; }
+  .terms-item p {
+    font-size: 8.5px;
+    color: rgba(255,255,255,.8);
+    line-height: 1.55;
+  }
+  .terms-footer-note {
+    margin-top: 11px;
+    padding-top: 9px;
+    border-top: 1px solid rgba(255,255,255,.12);
+    font-size: 8px;
+    color: rgba(255,255,255,.5);
+    text-align: center;
+    letter-spacing: .3px;
+  }
 </style>
 </head>
 <body>
@@ -1030,6 +1197,209 @@
   <div class="page-footer">
     <span><strong>Dentmart Dental Lab</strong> — Premium Dental Prosthetics, Kerala</span>
     <span>© 2025 Dentmart Dental Lab. All rights reserved.</span>
+  </div>
+
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     PAGE 4 — PRICE LIST + TERMS & CONDITIONS
+═══════════════════════════════════════ -->
+<div class="page" style="display:flex;flex-direction:column;">
+
+  <div class="p2-header">
+    <img src="assets/logo.png" alt="Dentmart" class="p2-header-logo">
+    <div class="p2-header-title">
+      <small>Pricing &amp; Terms</small>
+      <h2>Price List &amp; Conditions</h2>
+    </div>
+  </div>
+
+  <div class="p4-body">
+
+    <!-- Price List -->
+    <div class="price-note">💰 Price List (Inclusive of GST) &nbsp;·&nbsp; Per Unit</div>
+
+    <div class="price-columns">
+
+      <!-- Left column -->
+      <div class="price-col">
+
+        <!-- Zirconia -->
+        <div class="price-category">Zirconia</div>
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Rate (₹)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="price-num">01</span><span class="price-name">DM Monolithic Zirconia<br><small style="color:var(--muted);font-size:8px">Up to 3 Units</small></span></td>
+              <td class="price-amt"><span class="price-currency">₹</span>1,750</td>
+            </tr>
+            <tr>
+              <td><span class="price-num">02</span><span class="price-name">DM Monolithic Zirconia — Labial Layering<br><small style="color:var(--muted);font-size:8px">Up to 3 Units</small></span></td>
+              <td class="price-amt"><span class="price-currency">₹</span>1,950</td>
+            </tr>
+            <tr>
+              <td><span class="price-num">03</span><span class="price-name">DM Monolithic Zirconia<br><small style="color:var(--muted);font-size:8px">Up to 5 Units</small></span></td>
+              <td class="price-amt"><span class="price-currency">₹</span>2,000</td>
+            </tr>
+            <tr>
+              <td><span class="price-num">04</span><span class="price-name">DM Monolithic Zirconia — Labial Layering<br><small style="color:var(--muted);font-size:8px">Up to 5 Units</small></span></td>
+              <td class="price-amt"><span class="price-currency">₹</span>2,150</td>
+            </tr>
+            <tr>
+              <td><span class="price-num">05</span><span class="price-name">DM Basic Zirconia<br><small style="color:var(--muted);font-size:8px">Upto 6 Units</small></span></td>
+              <td class="price-amt"><span class="price-currency">₹</span>2,500</td>
+            </tr>
+            <tr>
+              <td><span class="price-num">06</span><span class="price-name">DM Classic Zirconia</span></td>
+              <td class="price-amt"><span class="price-currency">₹</span>3,000</td>
+            </tr>
+            <tr>
+              <td><span class="price-num">07</span><span class="price-name">DM Premium Zirconia</span></td>
+              <td class="price-amt"><span class="price-currency">₹</span>3,500</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Metal Ceramic -->
+        <div class="price-category">Metal Ceramic</div>
+        <table class="price-table">
+          <tbody>
+            <tr>
+              <td><span class="price-num">08</span><span class="price-name">DMLS PFM</span></td>
+              <td class="price-amt"><span class="price-currency">₹</span>950</td>
+            </tr>
+            <tr>
+              <td><span class="price-num">09</span><span class="price-name">DMLS PFM Facing</span></td>
+              <td class="price-amt"><span class="price-currency">₹</span>900</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      <!-- Right column -->
+      <div class="price-col">
+
+        <!-- Full Metal -->
+        <div class="price-category">Full Metal (DMLS)</div>
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Rate (₹)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="price-num">10</span><span class="price-name">Full Metal Endocrown</span></td>
+              <td class="price-amt"><span class="price-currency">₹</span>600</td>
+            </tr>
+            <tr>
+              <td><span class="price-num">11</span><span class="price-name">Full Metal Crown</span></td>
+              <td class="price-amt"><span class="price-currency">₹</span>500</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Gingiva -->
+        <div class="price-category">Gingiva</div>
+        <table class="price-table">
+          <tbody>
+            <tr>
+              <td><span class="price-num">12</span><span class="price-name">Gingiva Small</span></td>
+              <td class="price-amt"><span class="price-currency">₹</span>350</td>
+            </tr>
+            <tr>
+              <td><span class="price-num">13</span><span class="price-name">Gingiva Medium</span></td>
+              <td class="price-amt"><span class="price-currency">₹</span>450</td>
+            </tr>
+            <tr>
+              <td><span class="price-num">14</span><span class="price-name">Gingiva Large</span></td>
+              <td class="price-amt"><span class="price-currency">₹</span>650</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div><!-- /price-columns -->
+
+    <!-- Terms & Conditions -->
+    <div class="terms-section">
+      <div class="terms-section-header">
+        <div>
+          <h3>Terms &amp; Conditions</h3>
+          <p>Authentication Policy — Please read carefully before placing your order</p>
+        </div>
+        <div class="terms-badge">Authentication<br>Coverage</div>
+      </div>
+
+      <div class="terms-grid">
+        <div class="terms-item">
+          <div class="terms-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <p>Authentication covers <strong style="color:#fff">manufacturing defects only</strong>, subject to evaluation by Dentmart's experts.</p>
+        </div>
+        <div class="terms-item">
+          <div class="terms-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <p>Damages from <strong style="color:#fff">accidents, misuse, or negligence</strong> are not covered. Only replacement of defective prosthesis — no cash compensation.</p>
+        </div>
+        <div class="terms-item">
+          <div class="terms-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <p>Claims must include: <strong style="color:#fff">doctor's note, damaged prosthesis, new jaw models</strong>, and original authentication certificate.</p>
+        </div>
+        <div class="terms-item">
+          <div class="terms-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <p>Does <strong style="color:#fff">not cover</strong> damage to surrounding oral structures (teeth, gums, or bone).</p>
+        </div>
+        <div class="terms-item">
+          <div class="terms-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <p>Claims must be made <strong style="color:#fff">through the registered clinic</strong>. Patients must follow post-treatment care and attend check-ups every 6 months.</p>
+        </div>
+        <div class="terms-item">
+          <div class="terms-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <p>Excludes: <strong style="color:#fff">consultation fees, X-rays, modifications, transportation, and placement.</strong> Original design changes not permitted.</p>
+        </div>
+        <div class="terms-item">
+          <div class="terms-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <p>Extension, occlusion, and fit issues are <strong style="color:#fff">based on original model</strong>. Final prosthesis may not exactly replicate the original.</p>
+        </div>
+        <div class="terms-item">
+          <div class="terms-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <p>Dentmart may update terms via <strong style="color:#fff">dentmart.co.in</strong>. All disputes under jurisdiction of <strong style="color:#fff">Ernakulam District Court, Kerala.</strong></p>
+        </div>
+      </div>
+
+      <div class="terms-footer-note">
+        📞 +91 95672 88812 &nbsp;·&nbsp; ✉ sales@dentmart.co.in &nbsp;·&nbsp; 🌐 dentmart.co.in &nbsp;·&nbsp; © 2025 Dentmart Dental Lab. All rights reserved.
+      </div>
+    </div>
+
+  </div><!-- /p4-body -->
+
+  <div class="page-footer">
+    <span><strong>Dentmart Dental Lab</strong> — Koothattukulam, Ernakulam, Kerala — 686 662</span>
+    <span>dentmart.co.in &nbsp;|&nbsp; sales@dentmart.co.in</span>
   </div>
 
 </div>
