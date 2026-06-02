@@ -44,7 +44,14 @@
       margin: 0 auto;
       position: relative;
       overflow: hidden;
-      background: #fff;
+      background-color: #fff;
+      background-image: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%234f8d3b' fill-opacity='0.03' d='M0,192L48,176C96,160,192,128,288,138.7C384,149,480,203,576,213.3C672,224,768,192,864,176C960,160,1056,160,1152,176C1248,192,1344,224,1392,240L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E"),
+        radial-gradient(circle at 100% 0%, rgba(4, 48, 113, 0.03) 0%, transparent 60%),
+        radial-gradient(circle at 0% 100%, rgba(79, 141, 59, 0.04) 0%, transparent 60%);
+      background-position: bottom center, top right, bottom left;
+      background-repeat: no-repeat;
+      background-size: 100% auto, 100% 100%, 100% 100%;
       page-break-after: always;
     }
 
@@ -91,7 +98,7 @@
      PAGE 1 — COVER
   ══════════════════════════════════════════ */
     .cover {
-      background: linear-gradient(145deg, #043071 0%, #064096 45%, #4f8d3b 100%);
+      background: linear-gradient(135deg, #f8fbff 0%, #eef5fc 40%, #e4eff8 100%);
       height: 297mm;
       max-height: 297mm;
       display: flex;
@@ -106,7 +113,7 @@
       width: 420px;
       height: 420px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, .04);
+      background: radial-gradient(circle, rgba(79,141,59,.08) 0%, transparent 70%);
       top: -100px;
       right: -100px;
     }
@@ -117,20 +124,21 @@
       width: 280px;
       height: 280px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, .04);
+      background: radial-gradient(circle, rgba(107,194,82,.06) 0%, transparent 70%);
       bottom: 80px;
       left: -80px;
     }
 
     /* Top stripe */
     .cover-topbar {
-      background: rgba(0, 0, 0, .25);
+      background: rgba(255, 255, 255, .6);
+      border-bottom: 1px solid var(--border);
       padding: 10px 36px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       font-size: 10px;
-      color: rgba(255, 255, 255, .75);
+      color: var(--text);
       letter-spacing: .5px;
       position: relative;
       z-index: 2;
@@ -176,45 +184,46 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to right, #043071 0%, transparent 60%);
+      background: linear-gradient(to right, #f8fbff 0%, transparent 60%);
     }
 
     .cover-logo {
       width: 170px;
       margin-bottom: 32px;
-      background: #fff;
-      padding: 12px 18px;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      background: transparent;
+      padding: 0;
+      border-radius: 0;
+      box-shadow: none;
     }
 
     .cover-badge {
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      background: rgba(255, 255, 255, .15);
-      border: 1px solid rgba(255, 255, 255, .25);
+      background: linear-gradient(135deg, var(--light) 0%, #dcedd8 100%);
+      border: 1px solid rgba(79, 141, 59, .12);
       border-radius: 20px;
       padding: 5px 14px;
       font-size: 10px;
-      color: #fff;
-      font-weight: 600;
+      color: var(--blue);
+      font-weight: 700;
       letter-spacing: .8px;
       text-transform: uppercase;
       margin-bottom: 18px;
       width: fit-content;
+      box-shadow: 0 4px 15px rgba(79, 141, 59, .08);
     }
 
     .cover-badge::before {
       content: '★';
-      color: var(--gold);
+      color: var(--blue);
       font-size: 11px;
     }
 
     .cover-headline {
       font-size: 42px;
       font-weight: 900;
-      color: #fff;
+      color: var(--blue-dark);
       line-height: 1.08;
       letter-spacing: -.03em;
       margin-bottom: 18px;
@@ -222,21 +231,38 @@
 
     .cover-headline em {
       font-style: normal;
-      color: #7ec8ff;
+      color: var(--blue);
     }
 
     .cover-sub {
       font-size: 12.5px;
-      color: rgba(255, 255, 255, .78);
+      color: var(--muted);
       line-height: 1.75;
       max-width: 300px;
       margin-bottom: 32px;
     }
 
+    .cover-vector-art {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.9;
+      margin: 10px 0;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+    
+    .cover-vector-art svg {
+      width: 100%;
+      height: 100%;
+      max-height: 160px;
+    }
+
     .cover-stats {
       display: flex;
       gap: 0;
-      border-top: 1px solid rgba(255, 255, 255, .15);
+      border-top: 1px solid var(--border);
       padding-top: 22px;
       margin-bottom: 32px;
     }
@@ -244,7 +270,7 @@
     .cover-stat {
       flex: 1;
       text-align: center;
-      border-right: 1px solid rgba(255, 255, 255, .12);
+      border-right: 1px solid var(--border);
       padding: 0 16px;
     }
 
@@ -260,14 +286,14 @@
     .cover-stat-num {
       font-size: 26px;
       font-weight: 900;
-      color: #fff;
+      color: var(--blue-dark);
       line-height: 1;
       margin-bottom: 4px;
     }
 
     .cover-stat-label {
       font-size: 9.5px;
-      color: rgba(255, 255, 255, .6);
+      color: var(--muted);
       text-transform: uppercase;
       letter-spacing: .8px;
     }
@@ -299,7 +325,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(13, 40, 100, .35);
+      background: linear-gradient(to top, rgba(4, 48, 113, .7) 0%, transparent 100%);
     }
 
     .cover-photo-label {
@@ -318,13 +344,14 @@
 
     /* Footer bar on cover */
     .cover-footer {
-      background: rgba(0, 0, 0, .35);
+      background: rgba(255, 255, 255, .8);
+      border-top: 1px solid var(--border);
       padding: 10px 36px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       font-size: 9.5px;
-      color: rgba(255, 255, 255, .65);
+      color: var(--muted);
       letter-spacing: .3px;
       position: relative;
       z-index: 2;
@@ -334,7 +361,8 @@
      PAGE 2 — PRODUCTS
   ══════════════════════════════════════════ */
     .p2-header {
-      background: linear-gradient(110deg, #043071, #4f8d3b);
+      background: linear-gradient(135deg, #f8fbff 0%, #eef5fc 40%, #e4eff8 100%);
+      border-bottom: 1px solid var(--border);
       padding: 16px 36px 14px;
       display: flex;
       align-items: center;
@@ -343,15 +371,15 @@
 
     .p2-header-logo {
       width: 140px;
-      background: #fff;
-      padding: 8px 14px;
-      border-radius: 6px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      background: transparent;
+      padding: 0;
+      border-radius: 0;
+      box-shadow: none;
     }
 
     .p2-header-title {
       text-align: right;
-      color: #fff;
+      color: var(--blue-dark);
     }
 
     .p2-header-title small {
@@ -360,7 +388,7 @@
       font-weight: 600;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, .6);
+      color: var(--muted);
       margin-bottom: 3px;
     }
 
@@ -475,7 +503,8 @@
     .scanner-strip {
       margin-top: auto;
       margin-bottom: auto;
-      background: linear-gradient(110deg, #043071, #0a4f91);
+      background: linear-gradient(135deg, #f8fbff 0%, #eef5fc 40%, #e4eff8 100%);
+      border: 1px solid var(--border);
       border-radius: 10px;
       padding: 10px 16px;
       display: flex;
@@ -495,24 +524,25 @@
     .scanner-strip-text h4 {
       font-size: 13px;
       font-weight: 800;
-      color: #fff;
+      color: var(--blue-dark);
       margin-bottom: 4px;
     }
 
     .scanner-strip-text p {
       font-size: 9.5px;
-      color: rgba(255, 255, 255, .72);
+      color: var(--muted);
       line-height: 1.6;
     }
 
     .scanner-strip-badge {
       margin-left: auto;
       flex-shrink: 0;
-      background: rgba(255, 255, 255, .15);
-      border: 1px solid rgba(255, 255, 255, .25);
+      background: linear-gradient(135deg, var(--light) 0%, #dcedd8 100%);
+      border: 1px solid rgba(79, 141, 59, .12);
       border-radius: 8px;
       padding: 8px 14px;
       text-align: center;
+      box-shadow: 0 4px 15px rgba(79, 141, 59, .08);
     }
 
     .scanner-strip-badge span {
@@ -521,14 +551,14 @@
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, .7);
+      color: var(--blue);
       margin-bottom: 2px;
     }
 
     .scanner-strip-badge strong {
       font-size: 11px;
       font-weight: 800;
-      color: #fff;
+      color: var(--blue-dark);
     }
 
     /* Page footer */
@@ -675,7 +705,7 @@
       padding: 16px 22px;
       display: flex;
       gap: 16px;
-      border-top: 1px solid rgba(255, 255, 255, .15);
+      border-top: 1px solid var(--border);
     }
 
     .contact-left {
@@ -685,14 +715,14 @@
     .contact-left h3 {
       font-size: 17px;
       font-weight: 800;
-      color: #fff;
+      color: var(--blue-dark);
       margin-bottom: 5px;
       line-height: 1.2;
     }
 
     .contact-left p {
       font-size: 10px;
-      color: rgba(255, 255, 255, .7);
+      color: var(--muted);
       margin-bottom: 14px;
       line-height: 1.6;
     }
@@ -712,7 +742,7 @@
     .contact-row-icon {
       width: 26px;
       height: 26px;
-      background: rgba(255, 255, 255, .15);
+      background: var(--light);
       border-radius: 6px;
       display: flex;
       align-items: center;
@@ -723,13 +753,13 @@
     .contact-row-icon svg {
       width: 12px;
       height: 12px;
-      fill: #fff;
+      fill: var(--blue);
     }
 
     .contact-row-text h5 {
       font-size: 8.5px;
       font-weight: 700;
-      color: rgba(255, 255, 255, .6);
+      color: var(--muted);
       text-transform: uppercase;
       letter-spacing: .7px;
       margin-bottom: 1px;
@@ -738,7 +768,7 @@
     .contact-row-text p,
     .contact-row-text a {
       font-size: 10px;
-      color: #fff;
+      color: var(--text);
       font-weight: 500;
       text-decoration: none;
       line-height: 1.45;
@@ -759,7 +789,7 @@
       height: 100px;
       border-radius: 10px;
       overflow: hidden;
-      border: 2px solid rgba(255, 255, 255, .2);
+      border: 1px solid var(--border);
     }
 
     .contact-photo img {
@@ -771,8 +801,8 @@
     }
 
     .qr-placeholder {
-      background: rgba(255, 255, 255, .12);
-      border: 1px solid rgba(255, 255, 255, .2);
+      background: #fff;
+      border: 1px solid var(--border);
       border-radius: 8px;
       padding: 10px 14px;
       text-align: center;
@@ -780,13 +810,13 @@
 
     .qr-placeholder p {
       font-size: 8.5px;
-      color: rgba(255, 255, 255, .75);
+      color: var(--muted);
       line-height: 1.5;
       margin: 0;
     }
 
     .qr-placeholder strong {
-      color: #fff;
+      color: var(--blue-dark);
       font-size: 11px;
       display: block;
       margin-bottom: 2px;
@@ -938,7 +968,8 @@
 
     /* Combined Card Wrapper */
     .combined-card {
-      background: linear-gradient(110deg, #043071, #0a4f91);
+      background: linear-gradient(135deg, #f8fbff 0%, #eef5fc 40%, #e4eff8 100%);
+      border: 1px solid var(--border);
       border-radius: 14px;
       margin-bottom: 16px;
       display: flex;
@@ -956,35 +987,36 @@
       align-items: center;
       gap: 10px;
       margin-bottom: 13px;
-      border-bottom: 1px solid rgba(255, 255, 255, .15);
+      border-bottom: 1px solid var(--border);
       padding-bottom: 10px;
     }
 
     .terms-section-header h3 {
       font-size: 14px;
       font-weight: 800;
-      color: #fff;
+      color: var(--blue-dark);
     }
 
     .terms-section-header p {
       font-size: 9px;
-      color: rgba(255, 255, 255, .6);
+      color: var(--muted);
       margin-top: 2px;
     }
 
     .terms-badge {
-      background: rgba(255, 255, 255, .15);
-      border: 1px solid rgba(255, 255, 255, .2);
+      background: linear-gradient(135deg, var(--light) 0%, #dcedd8 100%);
+      border: 1px solid rgba(79, 141, 59, .12);
       border-radius: 8px;
       padding: 6px 10px;
       text-align: center;
       font-size: 8px;
       font-weight: 700;
-      color: rgba(255, 255, 255, .8);
+      color: var(--blue);
       letter-spacing: .5px;
       text-transform: uppercase;
       margin-left: auto;
       white-space: nowrap;
+      box-shadow: 0 4px 15px rgba(79, 141, 59, .08);
     }
 
     .terms-grid {
@@ -1002,7 +1034,7 @@
     .terms-icon {
       width: 16px;
       height: 16px;
-      background: rgba(255, 255, 255, .2);
+      background: var(--light);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -1014,13 +1046,17 @@
     .terms-icon svg {
       width: 9px;
       height: 9px;
-      fill: #fff;
+      fill: var(--blue);
     }
 
     .terms-item p {
       font-size: 8.5px;
-      color: rgba(255, 255, 255, .8);
+      color: var(--muted);
       line-height: 1.55;
+    }
+
+    .terms-item p strong {
+      color: var(--blue-dark) !important;
     }
 
     .terms-footer-note {
@@ -1065,6 +1101,32 @@
               and artisan expertise. Serving dental practices with world-class
               restorations — affordable, reliable, and exceptional.
             </p>
+          </div>
+
+          <div class="cover-vector-art">
+            <svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+              <defs>
+                <linearGradient id="toothGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="var(--blue-dark)" />
+                  <stop offset="100%" stop-color="var(--blue)" />
+                </linearGradient>
+                <linearGradient id="waveGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#6bc252" stop-opacity="0.15" />
+                  <stop offset="100%" stop-color="#0a4f91" stop-opacity="0.1" />
+                </linearGradient>
+              </defs>
+              <!-- Abstract decorative background waves -->
+              <path d="M-50,100 C50,160 150,40 250,100 C350,160 450,40 550,100 L550,200 L-50,200 Z" fill="url(#waveGrad)" />
+              <path d="M-50,120 C80,60 180,180 320,100 C420,40 480,140 550,120 L550,200 L-50,200 Z" fill="url(#waveGrad)" opacity="0.6" />
+              <!-- Floating aesthetic circles -->
+              <circle cx="80" cy="50" r="4.5" fill="var(--blue)" opacity="0.4" />
+              <circle cx="320" cy="130" r="6.5" fill="var(--blue-dark)" opacity="0.3" />
+              <circle cx="360" cy="40" r="3.5" fill="var(--blue)" opacity="0.5" />
+              <circle cx="120" cy="140" r="5" fill="var(--blue-dark)" opacity="0.2" />
+              <!-- Stylized abstract tooth outline -->
+              <path d="M190 40 C 170 40, 160 55, 160 75 C 160 100, 175 100, 175 120 C 175 130, 185 130, 185 120 C 185 105, 190 95, 200 95 C 210 95, 215 105, 215 120 C 215 130, 225 130, 225 120 C 225 100, 240 100, 240 75 C 240 55, 230 40, 210 40 Z" 
+                    fill="none" stroke="url(#toothGrad)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9" />
+            </svg>
           </div>
 
           <div>
