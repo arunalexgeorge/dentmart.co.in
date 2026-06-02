@@ -58,6 +58,11 @@
     }
 
     @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
       body {
         margin: 0;
       }
@@ -65,6 +70,7 @@
       .page {
         margin: 0;
         page-break-after: always;
+        page-break-inside: avoid;
       }
     }
 
@@ -393,6 +399,8 @@
 
     .p2-body {
       padding: 16px 30px;
+      display: flex;
+      flex-direction: column;
     }
 
     .p2-intro {
@@ -401,20 +409,20 @@
 
     .products-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
     }
 
     .prod-card {
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 10px;
       overflow: hidden;
       background: #fff;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, .04);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .05);
     }
 
     .prod-img {
-      height: 90px;
+      height: 140px;
       overflow: hidden;
     }
 
@@ -426,35 +434,35 @@
     }
 
     .prod-body {
-      padding: 8px 10px;
+      padding: 10px 12px;
     }
 
     .prod-tag {
-      font-size: 7px;
+      font-size: 8px;
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
       color: var(--blue);
       background: var(--light);
       border-radius: 6px;
-      padding: 2px 6px;
+      padding: 3px 8px;
       display: inline-block;
-      margin-bottom: 4px;
+      margin-bottom: 5px;
     }
 
     .prod-name {
-      font-size: 9.5px;
-      font-weight: 700;
+      font-size: 11px;
+      font-weight: 800;
       color: var(--blue-dark);
-      line-height: 1.3;
-      margin-bottom: 4px;
+      line-height: 1.35;
+      margin-bottom: 5px;
     }
 
     .prod-points {
       list-style: none;
-      font-size: 8px;
+      font-size: 9px;
       color: var(--muted);
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     .prod-points li::before {
@@ -465,7 +473,8 @@
 
     /* Scanner strip */
     .scanner-strip {
-      margin-top: 10px;
+      margin-top: auto;
+      margin-bottom: auto;
       background: linear-gradient(110deg, #043071, #0a4f91);
       border-radius: 10px;
       padding: 10px 16px;
@@ -663,11 +672,10 @@
 
     /* Contact section */
     .contact-section {
-      background: linear-gradient(110deg, #043071, #0a4f91);
-      border-radius: 10px;
-      padding: 14px 18px;
+      padding: 16px 22px;
       display: flex;
       gap: 16px;
+      border-top: 1px solid rgba(255, 255, 255, .15);
     }
 
     .contact-left {
@@ -928,12 +936,19 @@
       margin-right: 1px;
     }
 
-    /* Terms */
-    .terms-section {
+    /* Combined Card Wrapper */
+    .combined-card {
       background: linear-gradient(110deg, #043071, #0a4f91);
       border-radius: 14px;
-      padding: 18px 22px;
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
       flex: 1;
+    }
+
+    /* Terms */
+    .terms-section {
+      padding: 18px 22px 14px;
     }
 
     .terms-section-header {
@@ -1114,7 +1129,7 @@
   <!-- ═══════════════════════════════════════
      PAGE 2 — PRODUCTS
 ═══════════════════════════════════════ -->
-  <div class="page">
+  <div class="page" style="display:flex;flex-direction:column;">
 
     <div class="p2-header">
       <img src="assets/logo.png" alt="Dentmart" class="p2-header-logo">
@@ -1124,7 +1139,7 @@
       </div>
     </div>
 
-    <div class="p2-body">
+    <div class="p2-body" style="flex:1;">
 
       <div class="p2-intro">
         <div class="section-tag">Premium Products</div>
@@ -1489,6 +1504,12 @@
           <!-- Metal Ceramic -->
           <div class="price-category">Metal Ceramic</div>
           <table class="price-table">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Rate (₹)</th>
+              </tr>
+            </thead>
             <tbody>
               <tr>
                 <td><span class="price-num">08</span><span class="price-name">DMLS PFM</span></td>
@@ -1504,12 +1525,6 @@
           <!-- Full Metal -->
           <div class="price-category">Full Metal (DMLS)</div>
           <table class="price-table">
-            <thead>
-              <tr>
-                <th>Product</th>
-                <th>Rate (₹)</th>
-              </tr>
-            </thead>
             <tbody>
               <tr>
                 <td><span class="price-num">10</span><span class="price-name">Full Metal Endocrown</span></td>
@@ -1544,162 +1559,169 @@
         </div>
       </div><!-- /price-columns -->
 
-      <!-- Terms & Conditions -->
-      <div class="terms-section">
-        <div class="terms-section-header">
-          <div>
-            <h3>Terms &amp; Conditions</h3>
-            <p>Authentication Policy — Please read carefully before placing your order</p>
-          </div>
-          <div class="terms-badge">Authentication<br>Coverage</div>
-        </div>
+      <!-- Combined Terms & Contact Card -->
+      <div class="combined-card">
 
-        <div class="terms-grid">
-          <div class="terms-item">
-            <div class="terms-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-              </svg>
+        <!-- Terms & Conditions -->
+        <div class="terms-section">
+          <div class="terms-section-header">
+            <div>
+              <h3>Terms &amp; Conditions</h3>
+              <p>Authentication Policy — Please read carefully before placing your order</p>
             </div>
-            <p>Authentication covers <strong style="color:#fff">manufacturing defects only</strong>, subject to
-              evaluation by Dentmart's experts.</p>
+            <div class="terms-badge">Authentication<br>Coverage</div>
           </div>
-          <div class="terms-item">
-            <div class="terms-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-              </svg>
-            </div>
-            <p>Damages from <strong style="color:#fff">accidents, misuse, or negligence</strong> are not covered. Only
-              replacement of defective prosthesis — no cash compensation.</p>
-          </div>
-          <div class="terms-item">
-            <div class="terms-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-              </svg>
-            </div>
-            <p>Claims must include: <strong style="color:#fff">doctor's note, damaged prosthesis, new jaw
-                models</strong>, and original authentication certificate.</p>
-          </div>
-          <div class="terms-item">
-            <div class="terms-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-              </svg>
-            </div>
-            <p>Does <strong style="color:#fff">not cover</strong> damage to surrounding oral structures (teeth, gums, or
-              bone).</p>
-          </div>
-          <div class="terms-item">
-            <div class="terms-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-              </svg>
-            </div>
-            <p>Claims must be made <strong style="color:#fff">through the registered clinic</strong>. Patients must
-              follow post-treatment care and attend check-ups every 6 months.</p>
-          </div>
-          <div class="terms-item">
-            <div class="terms-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-              </svg>
-            </div>
-            <p>Excludes: <strong style="color:#fff">consultation fees, X-rays, modifications, transportation, and
-                placement.</strong> Original design changes not permitted.</p>
-          </div>
-          <div class="terms-item">
-            <div class="terms-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-              </svg>
-            </div>
-            <p>Extension, occlusion, and fit issues are <strong style="color:#fff">based on original model</strong>.
-              Final prosthesis may not exactly replicate the original.</p>
-          </div>
-          <div class="terms-item">
-            <div class="terms-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-              </svg>
-            </div>
-            <p>Dentmart may update terms via <strong style="color:#fff">dentmart.co.in</strong>. All disputes under
-              jurisdiction of <strong style="color:#fff">Ernakulam District Court, Kerala.</strong></p>
-          </div>
-        </div>
 
-        <!-- <div class="terms-footer-note">
+          <div class="terms-grid">
+            <div class="terms-item">
+              <div class="terms-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                </svg>
+              </div>
+              <p>Authentication covers <strong style="color:#fff">manufacturing defects only</strong>, subject to
+                evaluation by Dentmart's experts.</p>
+            </div>
+            <div class="terms-item">
+              <div class="terms-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                </svg>
+              </div>
+              <p>Damages from <strong style="color:#fff">accidents, misuse, or negligence</strong> are not covered. Only
+                replacement of defective prosthesis — no cash compensation.</p>
+            </div>
+            <div class="terms-item">
+              <div class="terms-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                </svg>
+              </div>
+              <p>Claims must include: <strong style="color:#fff">doctor's note, damaged prosthesis, new jaw
+                  models</strong>, and original authentication certificate.</p>
+            </div>
+            <div class="terms-item">
+              <div class="terms-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                </svg>
+              </div>
+              <p>Does <strong style="color:#fff">not cover</strong> damage to surrounding oral structures (teeth, gums,
+                or
+                bone).</p>
+            </div>
+            <div class="terms-item">
+              <div class="terms-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                </svg>
+              </div>
+              <p>Claims must be made <strong style="color:#fff">through the registered clinic</strong>. Patients must
+                follow post-treatment care and attend check-ups every 6 months.</p>
+            </div>
+            <div class="terms-item">
+              <div class="terms-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                </svg>
+              </div>
+              <p>Excludes: <strong style="color:#fff">consultation fees, X-rays, modifications, transportation, and
+                  placement.</strong> Original design changes not permitted.</p>
+            </div>
+            <div class="terms-item">
+              <div class="terms-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                </svg>
+              </div>
+              <p>Extension, occlusion, and fit issues are <strong style="color:#fff">based on original model</strong>.
+                Final prosthesis may not exactly replicate the original.</p>
+            </div>
+            <div class="terms-item">
+              <div class="terms-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                </svg>
+              </div>
+              <p>Dentmart may update terms via <strong style="color:#fff">dentmart.co.in</strong>. All disputes under
+                jurisdiction of <strong style="color:#fff">Ernakulam District Court, Kerala.</strong></p>
+            </div>
+          </div>
+
+          <!-- <div class="terms-footer-note">
           📞 +91 95672 88812 &nbsp;·&nbsp; ✉ sales@dentmart.co.in &nbsp;·&nbsp; 🌐 dentmart.co.in &nbsp;·&nbsp; © 2025
           Dentmart Dental Lab. All rights reserved.
         </div> -->
-      </div>
-      <!-- Contact Section -->
-      <div class="contact-section" style="margin-bottom: 16px;">
-        <div class="contact-left">
-          <h3>Ready to Partner<br>with Dentmart?</h3>
-          <p>Reach out today — our team responds within one business day.</p>
-          <div class="contact-rows">
-            <div class="contact-row">
-              <div class="contact-row-icon">
-                <svg viewBox="0 0 24 24">
-                  <path
-                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-                </svg>
+        </div>
+        <!-- Contact Section -->
+        <div class="contact-section">
+          <div class="contact-left">
+            <h3>Ready to Partner<br>with Dentmart?</h3>
+            <p>Reach out today — our team responds within one business day.</p>
+            <div class="contact-rows">
+              <div class="contact-row">
+                <div class="contact-row-icon">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                  </svg>
+                </div>
+                <div class="contact-row-text">
+                  <h5>Phone / WhatsApp</h5>
+                  <p>+91 95672 88812 &nbsp;|&nbsp; +91 95449 92234</p>
+                </div>
               </div>
-              <div class="contact-row-text">
-                <h5>Phone / WhatsApp</h5>
-                <p>+91 95672 88812 &nbsp;|&nbsp; +91 95449 92234</p>
+              <div class="contact-row">
+                <div class="contact-row-icon">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                  </svg>
+                </div>
+                <div class="contact-row-text">
+                  <h5>Email</h5>
+                  <a href="mailto:sales@dentmart.co.in">sales@dentmart.co.in</a>
+                </div>
+              </div>
+              <div class="contact-row">
+                <div class="contact-row-icon">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                  </svg>
+                </div>
+                <div class="contact-row-text">
+                  <h5>Address</h5>
+                  <p>Door No. 218A, Puthusseril Bldg., Karimpana P.O.,<br>Koothattukulam, Ernakulam, Kerala — 686 662
+                  </p>
+                </div>
+              </div>
+              <div class="contact-row">
+                <div class="contact-row-icon">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z" />
+                  </svg>
+                </div>
+                <div class="contact-row-text">
+                  <h5>Working Hours</h5>
+                  <p>Mon – Sat: 9:00 AM – 7:00 PM</p>
+                </div>
               </div>
             </div>
-            <div class="contact-row">
-              <div class="contact-row-icon">
-                <svg viewBox="0 0 24 24">
-                  <path
-                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-                </svg>
-              </div>
-              <div class="contact-row-text">
-                <h5>Email</h5>
-                <a href="mailto:sales@dentmart.co.in">sales@dentmart.co.in</a>
-              </div>
+          </div>
+          <div class="contact-right">
+            <div class="contact-photo">
+              <img src="assets/about-story.jpg" alt="Dentmart Lab">
             </div>
-            <div class="contact-row">
-              <div class="contact-row-icon">
-                <svg viewBox="0 0 24 24">
-                  <path
-                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                </svg>
-              </div>
-              <div class="contact-row-text">
-                <h5>Address</h5>
-                <p>Door No. 218A, Puthusseril Bldg., Karimpana P.O.,<br>Koothattukulam, Ernakulam, Kerala — 686 662</p>
-              </div>
-            </div>
-            <div class="contact-row">
-              <div class="contact-row-icon">
-                <svg viewBox="0 0 24 24">
-                  <path
-                    d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z" />
-                </svg>
-              </div>
-              <div class="contact-row-text">
-                <h5>Working Hours</h5>
-                <p>Mon – Sat: 9:00 AM – 7:00 PM</p>
-              </div>
+            <div class="qr-placeholder">
+              <strong>Visit Us Online</strong>
+              <p>dentmart.co.in</p>
             </div>
           </div>
         </div>
-        <div class="contact-right">
-          <div class="contact-photo">
-            <img src="assets/about-story.jpg" alt="Dentmart Lab">
-          </div>
-          <div class="qr-placeholder">
-            <strong>Visit Us Online</strong>
-            <p>dentmart.co.in</p>
-          </div>
-        </div>
       </div>
+      <!-- /Combined Card -->
 
     </div><!-- /p4-body -->
 
